@@ -14,11 +14,15 @@ app.set("views", "./views");
 app.set("view engine", "ejs");
 
 // 4 ROUTING CODES
-app.get("/", function (req, res) {
-  res.end("<h1>Hello world with Abubakir</h1>");
+// app.get("/", function (req, res) {
+//   res.end("<h1>Hello world with Abubakir</h1>");
+// });
+app.post("/create-item", function (req, res) {
+  console.log(req.body);
+  res.json({ test: "success" });
 });
-app.get("/hi", function (req, res) {
-  res.end(`<h1 style='color: blue;'>Hello you are on hi page now</h1>`);
+app.get("/", function (req, res) {
+  res.render("harid");
 });
 
 const server = http.createServer(app);
