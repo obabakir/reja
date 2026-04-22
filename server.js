@@ -30,11 +30,11 @@ app.set("view engine", "ejs");
 //   res.end("<h1>Hello world with Abubakir</h1>");
 // });
 
-// app.post("/create-item", function (req, res) {
-//   console.log(req.body);
-//   res.json({ test: "success" });
-// });
-app.post("/create-item", (req, res) => {});
+app.post("/create-item", function (req, res) {
+  console.log(req.body);
+  res.json({ test: "success" });
+});
+// app.post("/create-item", (req, res) => {});
 app.get("/author", (req, res) => {
   res.render("author", { user: user });
 });
@@ -42,8 +42,13 @@ app.get("/", (req, res) => {
   res.render("harid");
 });
 
+// <-- -->
+app.get("/author", (req, res) => {
+  if (!user) return res.send("Loading...");
+  res.render("author", { user });
+});
 const server = http.createServer(app);
-let PORT = 3003;
+let PORT = 3000;
 server.listen(PORT, function () {
   console.log(`Server is running successfullyon port ${PORT}`);
 });

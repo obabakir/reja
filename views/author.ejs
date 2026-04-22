@@ -1,11 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <H1>HELLO WORLD</H1>
-</body>
-</html></H1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="main_frame">
+        <!-- // -->
+        <div class="left_frame">
+          <div class="left_1">
+            <div class="left_1-1">
+              <img
+                src="/author/images/profile.png"
+                width="156px"
+                height="142px"
+              />
+            </div>
+            <div class="left_1-2"><%= user.name %></div>
+            <div class="left_1-3"><%= user.profession %></div>
+            <div class="left-icons">
+              <a href="" class="link_href">
+                <div class="icon">
+                  <img src="/author/icons/Facebook.svg" alt="" class="icon1" />
+                </div>
+              </a>
+              <a href="" class="link_href">
+                <div class="icon">
+                  <img src="/author/icons/Twitter.svg" alt="" class="icon1" />
+                </div>
+              </a>
+              <a href="" class="link_href">
+                <div class="icon">
+                  <img src="/author/icons/Instagram.svg" alt="" class="icon1" />
+                </div>
+              </a>
+              <a href="" class="link_href">
+                <div class="icon">
+                  <img src="/author/icons/Twitter.svg" alt="" class="icon1" />
+                </div>
+              </a>
+              <a href="" class="link_href">
+                <div class="icon">
+                  <img src="/author/icons/Youtube.svg" alt="" class="icon1" />
+                </div>
+              </a>
+              <a href="" class="link_href">
+                <div class="icon">
+                  <img src="/author/icons/Dribbble.svg" alt="" class="icon1" />
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="marginer"></div>
+          <div class="left_2">
+            <div class="personal_info">
+              <strong class="text_left">age</strong>
+              <strong class="text_right"><%= user.age %></strong>
+            </div>
+            <div class="personal_info">
+              <strong class="text_left">Residance</strong>
+              <strong class="text_right"><%= user.residence %></strong>
+            </div>
+            <div class="personal_info">
+              <strong class="text_left">Freelance</strong>
+              <strong class="text_right active"><%= user.freelance %></strong>
+            </div>
+            <div class="personal_info">
+              <strong class="text_left">Address</strong>
+              <strong class="text_right"><%= user.address %></strong>
+            </div>
+          </div>
+          <div class="marginer"></div>
+          <div class="left_3">
+            <p class="lang">Languages</p>
+
+            <div class="knowledge">
+              <strong class="lang_type"><%= user.languages[0] %></strong>
+              <strong class="lang_type">100%</strong>
+            </div>
+            <div class="small_brew">
+              <div class="brew100"></div>
+            </div>
+            <div class="knowledge">
+              <strong class="lang_type"><%= user.languages[1] %></strong>
+              <strong class="lang_type">80%</strong>
+            </div>
+            <div class="small_brew">
+              <div class="brew80"></div>
+            </div>
+            <div class="knowledge">
+              <strong class="lang_type"><%= user.languages[2] %></strong>
+              <strong class="lang_type">60%</strong>
+            </div>
+            <div class="small_brew">
+              <div class="brew60"></div>
+            </div>
+          </div>
+          <div class="marginer"></div>
+
+          <div class="left_4">
+            <p class="lang">SKILLS</p>
+            <div class="knowledge">
+              <strong class="lang_type"><%= user.skills[0] %></strong>
+              <strong class="lang_type">90%</strong>
+            </div>
+            <div class="small_brew">
+              <div class="brew90"></div>
+            </div>
+            <div class="knowledge">
+              <strong class="lang_type"><%= user.skills[1] %></strong>
+              <strong class="lang_type">85%</strong>
+            </div>
+            <div class="small_brew">
+              <div class="brew85"></div>
+            </div>
+            <div class="knowledge">
+              <strong class="lang_type"><%= user.skills[2] %></strong>
+              <strong class="lang_type">80%</strong>
+            </div>
+            <div class="small_brew">
+              <div class="brew80"></div>
+            </div>
+            <div class="knowledge">
+              <strong class="lang_type"><%= user.skills[3] %></strong>
+              <strong class="lang_type">75%</strong>
+            </div>
+            <div class="small_brew">
+              <div class="brew75"></div>
+            </div>
+            <div class="knowledge">
+              <strong class="lang_type"><%= user.skills[4] %></strong>
+              <strong class="lang_type">85%</strong>
+            </div>
+            <div class="small_brew">
+              <div class="brew85"></div>
+            </div>
+          </div>
+          <div class="marginer"></div>
+
+          <div class="left_5">
+            <p class="lang">EXTRA SKILLS</p>
+            <div class="extra">
+              <img
+                src="/author/icons/rectangular.svg"
+                alt=""
+                class="rectangle"
+              />
+              <strong class="skill_type"
+                ><%= user.extra_skills[0] %>, <%= user.extra_skills[1] %>
+              </strong>
+            </div>
+            <div class="extra">
+              <img
+                src="/author/icons/rectangular.svg"
+                alt=""
+                class="rectangle"
+              />
+              <strong class="skill_type"
+                ><%= user.extra_skills[2] %>, <%= user.extra_skills[3]
+                %></strong
+              >
+            </div>
+            <div class="extra">
+              <img
+                src="/author/icons/rectangular.svg"
+                alt=""
+                class="rectangle"
+              />
+              <strong class="skill_type"
+                ><%= user.extra_skills[4] %>, <%= user.extra_skills[5]
+                %></strong
+              >
+            </div>
+            <div class="extra">
+              <img
+                src="/author/icons/rectangular.svg"
+                alt=""
+                class="rectangle"
+              />
+              <strong class="skill_type"><%= user.extra_skills[6] %></strong>
+            </div>
+          </div>
+          <div class="marginer"></div>
+        </div>
+        <!-- // -->
+        <div class="midd_frame">
+          <div class="mid_top">
+            <div class="work_info">
+              <p class="job_title"><%=user.work_place%></p>
+              <strong class="work_process"> <%=user.service_desc%> </strong>
+              <a href="" style="text-decoration: none">
+                <button type="" class="hire_button">
+                  <strong class="hireRequest">Hire Me</strong>
+                  <img
+                    src="/author/icons/right pointer.svg"
+                    alt=""
+                    class="rightPointe"
+                  />
+                </button>
+              </a>
+            </div>
+            <img
+              src="/author/images/profile_img2.png"
+              alt=""
+              class="mid_profileImage"
+            />
+          </div>
+
+          <div class="mid_bott">
+            <div class="mid_centerInfo">
+              <strong class="cervise_suggest">My Service</strong>
+              <strong class="service_info"><%= user.about_me%></strong>
+            </div>
+            <div class="addvertising_box">
+              <div class="profession_add">
+                <img
+                  src="/author/icons/Icons_coding.png"
+                  alt=""
+                  style="width: 68px; height: 68px"
+                />
+                <strong class="jobTittles"><%=user.professionTypes[0]%></strong>
+                <strong class="jobDetails"
+                  ><%=user.professionDetails[0]%></strong
+                >
+              </div>
+              <div class="profession_add">
+                <img
+                  src="/author/icons/Icons_illustration.png"
+                  alt=""
+                  style="width: 76px; height: 76px"
+                />
+                <strong class="jobTittles"><%=user.professionTypes[1]%></strong>
+                <strong class="jobDetails"
+                  ><%=user.professionDetails[1]%></strong
+                >
+              </div>
+              <div class="profession_add">
+                <img
+                  src="/author/icons/Icons_Microphone.png"
+                  alt=""
+                  style="width: 74px; height: 74px"
+                />
+                <strong class="jobTittles"><%=user.professionTypes[2]%></strong>
+                <strong class="jobDetails"
+                  ><%=user.professionDetails[2]%></strong
+                >
+              </div>
+              <div class="profession_add">
+                <img
+                  src="/author/icons/Icons_coding.png"
+                  alt=""
+                  style="width: 76px; height: 76px"
+                />
+                <strong class="jobTittles"><%=user.professionTypes[3]%></strong>
+                <strong class="jobDetails"
+                  ><%=user.professionDetails[3]%></strong
+                >
+              </div>
+              <div class="profession_add">
+                <img
+                  src="/author/icons/Icons_game-development.png"
+                  alt=""
+                  style="width: 74px; height: 74px"
+                />
+                <strong class="jobTittles"><%=user.professionTypes[4]%></strong>
+                <strong class="jobDetails"
+                  ><%=user.professionDetails[4]%></strong
+                >
+              </div>
+              <div class="profession_add">
+                <strong class="jobTittles"><%=user.professionTypes[5]%></strong>
+                <strong class="jobDetails"
+                  ><%=user.professionDetails[5]%></strong
+                >
+                <a href="" class="orderNow"> OrderNow ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="right_frame">
+          <img src="/author/icons/Contrast.svg" alt="" class="single_icon" />
+          <div class="icons_box">
+            <div class="double_img">
+              <img src="/author/icons/Pop up.png" alt="" class="overtop" />
+              <img src="/author/icons/Home.svg" alt="" class="unter_img" />
+            </div>
+            <img src="/author/icons/Service.svg" alt="" class="intro_icons" />
+            <img src="/author/icons/Cv.svg" alt="" class="intro_icons" />
+            <img src="/author/icons/Portfolio.svg" alt="" class="intro_icons" />
+            <img src="/author/icons/Blog.svg" alt="" class="intro_icons" />
+            <img src="/author/icons/Contact.svg" alt="" class="intro_icons" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

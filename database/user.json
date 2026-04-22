@@ -1,6 +1,7 @@
 {
   "name": "Steve",
   "profession": "Software Engineer",
+  "freelance": "Available",
   "age": 20,
   "residence": "S.Korea",
   "address": "S.Korea, Busan",
@@ -15,7 +16,7 @@
     "Flask",
     "GIT Knowledge"
   ],
-  "work_place": "IT Company",
+  "work_place": "IT Company in Busan, South Korea",
   "service_desc": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.",
   "about_me": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis.",
   "city": "Denau",
@@ -25,6 +26,7 @@
     "What is a Seedling?",
     "Who is Gardner?"
   ],
+
   "flower_name": [
     "Tulip",
     "Daffodil",
@@ -48,5 +50,22 @@
     "9$"
   ],
   "famous_words": ["World is Beautiful with Flowers"],
-  "famous_name": ["Steve Jobs"]
+  "famous_name": ["Steve Jobs"],
+  "professionTypes": [
+    "web development",
+    "uI/uX design",
+    "sound design",
+    " game design",
+    "Photography",
+    "advertising"
+  ],
+  "professionDetails": [
+    "blog, e-commerce",
+    "Mobile app, website design",
+    "Voice Over, Beat Making",
+    "Character Design, Props & Objects",
+    "portrait, product photography",
+
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. "
+  ]
 }
