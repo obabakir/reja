@@ -1,73 +1,43 @@
-console.log("Hello, World! This is the server.js file.");
-const express = require("express");
-const app = express();
+// server.js
 const http = require("http");
-const fs = require("fs");
 
-//=== <==> ===
-const open = require("open").default;
+const mongodb = require("mongodb");
 
-let user;
-fs.readFile("database/user.json", "utf-8", (err, data) => {
-  if (err) {
-    console.log("ERROR:", err);
-  } else {
-    user = JSON.parse(data);
-  }
-});
+let db;
+const connectionString =
+  "mongodb+srv://Abubakir:E64ePYxEuM5BaQOZ@cluster0.pcvmyac.mongodb.net/reja?retryWrites=true&w=majority";
 
-// 1 KIRISH CODES
+mongodb.connect(
+  connectionString,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  (err, client) => {
+    if (err) console.log("error on connection MongodDb");
+    else {
+      // == === agar bu linkni yoqsasng u butun infoni beradi atlasdagi
+      //   console.log(client);
+      console.log("Mongodb connection succed");
+      module.exports = client;
+      const app = require("./app");
+      const server = http.createServer(app);
+      let PORT = 3000;
 
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// 2 SESSION CODES
-// 3 VIEWS CODES
+      server.listen(PORT, function () {
+        console.log(
+          `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`,
+        );
+      });
+    }
+  },
+);
 
-app.set("views", "./views");
-app.set("view engine", "ejs");
+// const server = http.createServer(app);
+// let PORT = 3000;
 
-// 4 ROUTING CODES
-
-// app.get("/", function (req, res) {
-//   res.end("<h1>Hello world with Abubakir</h1>");
-// });
-
-app.post("/create-item", function (req, res) {
-  console.log(req.body);
-  res.json({ test: "success" });
-});
-// app.post("/create-item", (req, res) => {});
-app.get("/author", (req, res) => {
-  res.render("author", { user: user });
-});
-app.get("/", (req, res) => {
-  res.render("reja");
-});
-
-// <-- -->
-app.get("/author", (req, res) => {
-  if (!user) return res.send("Loading...");
-  res.render("author", { user });
-});
-const server = http.createServer(app);
-let PORT = 3000;
-
-//  ====== avto local host ======
-
-server.listen(PORT, async function () {
-  console.log(`Running on http://localhost:${PORT}`);
-  await open(`http://localhost:${PORT}`);
-});
-
-// === teacher code ====
 // server.listen(PORT, function () {
 //   console.log(
-//     `Server is running successfullyon port ${PORT}, http://localhost:${PORT}`,
+//     `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`,
 //   );
 // });
-// ===== ===== =====
-// server.listen(PORT, () => {
-//   console.log(` http://localhost:${PORT}`);
-// });
-// console.log("hellod");
+
+// ==== changed link ====
+//  "mongodb+srv://Abubakir:E64ePYxEuM5BaQOZ@cluster0.pcvmyac.mongodb.net/"
