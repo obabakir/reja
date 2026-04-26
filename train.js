@@ -1,59 +1,82 @@
 // MITASK - A
-async function countLetter(letter, text) {
-  if (typeof letter !== "string" || typeof text != "string") {
-    throw new Error("insert letter");
-  } else {
-    let count = 0;
-    for (let char of text) {
-      if (char === letter) count++;
+// async function countLetter(letter, text) {
+//   if (typeof letter !== "string" || typeof text !== "string") {
+//     throw new Error("insert letter");
+//   } else {
+//     let count = 0;
+//     for (let char of text) {
+//       if (char === letter) count++;
+//     }
+//     return count;
+//   }
+// }
+
+// countLetter("e", "engineering")
+//   .then((data) => {
+//     console.log("result:", data);
+//   })
+//   .catch((err) => {
+//     console.log("result:", err);
+//   });
+
+// console.log("Jack Ma theory");
+
+// define
+function countLetter2(letter, text, callback) {
+  setTimeout(() => {
+    if (typeof letter !== "string" || typeof text !== "string")
+      callback("insert string please", null);
+    else {
+      let count = 0;
+      for (let char of text) {
+        if (char === letter) count++;
+      }
+      callback(null, count);
     }
-    return count;
-  }
+  }, 2000);
 }
 
-countLetter("e", "engineering")
-  .then((data) => {
-    console.log("result:", data);
-  })
-  .catch((err) => {
-    console.log("result:", err);
-  });
+countLetter2("a", "aabubakir", (err, data) => {
+  if (err) console.log(err);
+  else console.log(data);
+});
 
-console.log("Jack Ma theory");
+// call
+
 // N2 ============= ASYNCHRONOUS FUNCTION ========================
 
-const list = [
-  "yaxshi talaba boling" /* 0-20*/,
+// const list = [
+//   "yaxshi talaba boling" /* 0-20*/,
 
-  "togri boshliq tanlang va koproq hato qiling" /* 20-30*/,
+//   "togri boshliq tanlang va koproq hato qiling" /* 20-30*/,
 
-  "ozingizga ishlashingizni boshlang" /* 30-40*/,
+//   "ozingizga ishlashingizni boshlang" /* 30-40*/,
 
-  "siz kuchli bolgan narsalarni qiling" /* 40-50*/,
+//   "siz kuchli bolgan narsalarni qiling" /* 40-50*/,
 
-  "yoshlarga investitsya qiling" /* 50-60*/,
+//   "yoshlarga investitsya qiling" /* 50-60*/,
 
-  "endi dam oling, foydasi yoq" /* 60 + */,
-];
+//   "endi dam oling, foydasi yoq" /* 60 + */,
+// ];
 
-// ============= DEFINE PART ============= <=>
+// // ============= DEFINE PART ============= <=>
 
-async function giveAdvise(a) {
-  if (typeof a !== "number") throw new Error("insert a number");
-  else if (a <= 20) return list[0];
-  else if (a > 20 && a <= 30) return list[1];
-  else if (a > 30 && a <= 40) return list[2];
-  else if (a > 40 && a <= 50) return list[3];
-  else if (a > 50 && a <= 60) return list[4];
-  else {
-    // return list[5];
-    return new Promise((resolve, reject) => {
-      setInterval(() => {
-        resolve(list[5]);
-      }, 3000);
-    });
-  }
-}
+// async function giveAdvise(a) {
+//   if (typeof a !== "number") throw new Error("insert a number");
+//   else if (a <= 20) return list[0];
+//   else if (a > 20 && a <= 30) return list[1];
+//   else if (a > 30 && a <= 40) return list[2];
+//   else if (a > 40 && a <= 50) return list[3];
+//   else if (a > 50 && a <= 60) return list[4];
+//   else {
+//     // return list[5];
+//     return new Promise((resolve, reject) => {
+//       setInterval(() => {
+//         resolve(list[5]);
+//       }, 3000);
+//     });
+//   }
+// }
 
 // ============ CALL PART ============ <=>
 // console.log("passed here 0");
@@ -70,16 +93,16 @@ async function giveAdvise(a) {
 //NOTE: biz run qilganimizda avval synchronous va keyin asynchronous larni oqishni boshlaydi.
 
 // AYNC via AWAIT
-async function run() {
-  let answer = await giveAdvise(42);
-  console.log(answer);
-  answer = await giveAdvise(70);
-  console.log(answer);
-  answer = await giveAdvise(51);
-  console.log(answer);
-}
+// async function run() {
+//   let answer = await giveAdvise(42);
+//   console.log(answer);
+//   answer = await giveAdvise(70);
+//   console.log(answer);
+//   answer = await giveAdvise(51);
+//   console.log(answer);
+// }
 
-run();
+// run();
 
 //NOTE: async functionda boshqa fuction lar ishlameydi va biz ^ new Promise ^ dan foydalandin uni ishlatish un.
 // NOTE: AWAIT ham tartib bn yani ketma ket ishga tushadi, agar yuqoridagidek kutish requestini bergan bolsak ham avval kutib keyin ishga tushadi tartib bilan

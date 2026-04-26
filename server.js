@@ -4,6 +4,9 @@ const app = express();
 const http = require("http");
 const fs = require("fs");
 
+//=== <==> ===
+const open = require("open").default;
+
 let user;
 fs.readFile("database/user.json", "utf-8", (err, data) => {
   if (err) {
@@ -39,7 +42,7 @@ app.get("/author", (req, res) => {
   res.render("author", { user: user });
 });
 app.get("/", (req, res) => {
-  res.render("harid");
+  res.render("reja");
 });
 
 // <-- -->
@@ -49,6 +52,22 @@ app.get("/author", (req, res) => {
 });
 const server = http.createServer(app);
 let PORT = 3000;
-server.listen(PORT, function () {
-  console.log(`Server is running successfullyon port ${PORT}`);
+
+//  ====== avto local host ======
+
+server.listen(PORT, async function () {
+  console.log(`Running on http://localhost:${PORT}`);
+  await open(`http://localhost:${PORT}`);
 });
+
+// === teacher code ====
+// server.listen(PORT, function () {
+//   console.log(
+//     `Server is running successfullyon port ${PORT}, http://localhost:${PORT}`,
+//   );
+// });
+// ===== ===== =====
+// server.listen(PORT, () => {
+//   console.log(` http://localhost:${PORT}`);
+// });
+// console.log("hellod");
