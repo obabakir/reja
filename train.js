@@ -1,3 +1,25 @@
+// ====== MITASK2 ========
+function countDigits(ele, callback) {
+  if (typeof ele !== "string") {
+    return callback("Input must be a string", null);
+  }
+
+  let count = 0;
+
+  for (let char of ele) {
+    if (char >= "0" && char <= "9") {
+      count++;
+    }
+  }
+
+  callback(null, count);
+}
+
+countDigits("Q1e2r3", (err, data) => {
+  if (err) console.log("Error:", err);
+  else console.log("natija:", data); // 3
+});
+
 // MITASK - A
 // async function countLetter(letter, text) {
 //   if (typeof letter !== "string" || typeof text !== "string") {
@@ -22,24 +44,24 @@
 // console.log("Jack Ma theory");
 
 // define
-function countLetter2(letter, text, callback) {
-  setTimeout(() => {
-    if (typeof letter !== "string" || typeof text !== "string")
-      callback("insert string please", null);
-    else {
-      let count = 0;
-      for (let char of text) {
-        if (char === letter) count++;
-      }
-      callback(null, count);
-    }
-  }, 2000);
-}
+// function countLetter2(letter, text, callback) {
+//   setTimeout(() => {
+//     if (typeof letter !== "string" || typeof text !== "string")
+//       callback("insert string please", null);
+//     else {
+//       let count = 0;
+//       for (let char of text) {
+//         if (char === letter) count++;
+//       }
+//       callback(null, count);
+//     }
+//   }, 2000);
+// }
 
-countLetter2("a", "aabubakir", (err, data) => {
-  if (err) console.log(err);
-  else console.log(data);
-});
+// countLetter2("a", "aabubakir", (err, data) => {
+//   if (err) console.log(err);
+//   else console.log(data);
+// });
 
 // call
 
