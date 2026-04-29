@@ -1,5 +1,6 @@
 // app.js
 console.log("Web Serverni boshlash");
+const res = require("express/lib/response");
 const express = require("express");
 
 const app = express();
@@ -7,11 +8,8 @@ const fs = require("fs");
 
 // MongoDB chaqirish
 
-//
-// === ==== 26 lesson dagi muammo tufayli ornini alishtirmoqchimn 30 line da ham davomi
-// const db = require("./server");
-
 const db = require("./server").db();
+const mongodb = require("mongodb");
 
 // ==== 1 Kirish code
 
@@ -27,6 +25,7 @@ app.set("view engine", "ejs");
 // === 4. routing code
 
 // ======= 25 mavzuda ustoz shuni ishlatdi ====
+
 app.post("/create-item", (req, res) => {
   console.log("user entered /create-item");
   console.log(req.body);
@@ -45,12 +44,19 @@ app.post("/create-item", (req, res) => {
   });
 });
 
-// -------
-// ==== in lesson 25 replaced =====
-// app.post("/create-item", (req, res) => {
-//   console.log(req.body);
-//   res.json({ test: "success" });
-// });
+//  === delet operation ====
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  db.collection("plans").deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    function (err, data) {
+      res.json({ state: "success" });
+    },
+  );
+
+  // console.log(id);
+  // res.end("done");
+});
 
 app.get("/", function (req, res) {
   console.log("user entered /");

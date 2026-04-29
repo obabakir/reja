@@ -30,6 +30,40 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
       createField.focus();
     })
     .catch((err) => {
-      console.log("P lease, try again");
+      console.log("Please, try again");
     });
+});
+
+document.addEventListener("click", (e) => {
+  // =====  delete operation =====
+  //   console.log(e);
+  console.log(e.target);
+
+  if (e.target.classList.contains("delete-me")) {
+    //    alert("you pressed edit button");
+    if (confirm("Are you sure to delete?")) {
+      axios
+        .post("delete-item", { id: e.target.getAttribute("data-id") })
+        .then((response) => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.remove();
+        })
+        .catch((err) => {
+          console.log("Please try again");
+        });
+      //   alert("answer is: yes");
+    }
+    // else {alert("answer is: no");}
+  }
+
+  //   edit
+  if (e.target.classList.contains("edit-me")) {
+    // =====  pressing  button  =====
+    // alert("you pressed edit button");
+    // if (confirm("Are you sure to add?")) {
+    //   alert("answer is: yes");
+    // } else {
+    //   alert("answer is: no");
+    // }
+  }
 });
