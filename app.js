@@ -3,6 +3,7 @@ console.log("Web Serverni boshlash");
 const express = require("express");
 
 const app = express();
+const fs = require("fs");
 
 // MongoDB chaqirish
 
@@ -32,12 +33,15 @@ app.post("/create-item", (req, res) => {
   // res.end("seccess");
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end("something went wrong");
-    } else {
-      res.end("successfully added");
-    }
+    console.log(data.ops);
+    res.json(data.ops[0]);
+
+    // if (err) {
+    //   console.log(err);
+    //   res.end("something went wrong");
+    // } else {
+    //   res.end("successfully added");
+    // }
   });
 });
 
@@ -69,8 +73,7 @@ module.exports = app;
 // console.log("Hello, World! This is the server.js file.");
 // const express = require("express");
 // const app = express();
-
-// const fs = require("fs");
+// const fs = require("fs")
 
 // let user;
 // fs.readFile("database/user.json", "utf-8", (err, data) => {
