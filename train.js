@@ -1,24 +1,84 @@
-// ====== MITASK2 ========
-function countDigits(ele, callback) {
-  if (typeof ele !== "string") {
-    return callback("Input must be a string", null);
+// MITASK C
+const moment = require("moment");
+
+class Shopping {
+  #non = 0;
+  #lagmon = 0;
+  #cola = 0;
+
+  constructor(non, lagmon, cola) {
+    this.#non = non;
+    this.#lagmon = lagmon;
+    this.#cola = cola;
+  }
+  qoldiq() {
+    const vaqt = moment().format("HH:mm:ss");
+    console.log(
+      ` hozir ${vaqt} da: ${this.#non} ta non ,${this.#lagmon}, ta lagmon, ${this.#cola} ta cola mavjud`,
+    );
   }
 
-  let count = 0;
-
-  for (let char of ele) {
-    if (char >= "0" && char <= "9") {
-      count++;
+  sotish(product, amount) {
+    if (product === "non") {
+      this.#non -= amount;
+      return this.#non;
+    } else if (product === "lagmon") {
+      this.#lagmon -= amount;
+      return this.#lagmon;
+    } else if (product === "cola") {
+      this.#cola -= amount;
+      return this.#cola;
+    } else {
+      console.log("error: sotish amalga oshmadi");
     }
   }
 
-  callback(null, count);
+  qabul(product, amount) {
+    if (product === "non") {
+      this.#non += amount;
+      return this.#non;
+    } else if (product === "lagmon") {
+      this.#lagmon += amount;
+      return this.#lagmon;
+    } else if (product === "cola") {
+      this.#cola += amount;
+      return this.#cola;
+    } else {
+      console.log("error: qabul amalga oshmadi");
+    }
+  }
 }
 
-countDigits("Q1e2r3", (err, data) => {
-  if (err) console.log("Error:", err);
-  else console.log("natija:", data); // 3
-});
+const shop = new Shopping(4, 5, 2);
+console.log("before");
+shop.qoldiq();
+shop.sotish("non", 2);
+shop.qabul("cola", 3);
+shop.qabul("lagmon", 6);
+console.log("after");
+shop.qoldiq();
+
+// ====== MITASK2 ========
+// function countDigits(ele, callback) {
+//   if (typeof ele !== "string") {
+//     return callback("Input must be a string", null);
+//   }
+
+//   let count = 0;
+
+//   for (let char of ele) {
+//     if (char >= "0" && char <= "9") {
+//       count++;
+//     }
+//   }
+
+//   callback(null, count);
+// }
+
+// countDigits("Q1e2r3", (err, data) => {
+//   if (err) console.log("Error:", err);
+//   else console.log("natija:", data); // 3
+// });
 
 // MITASK - A
 // async function countLetter(letter, text) {
@@ -33,7 +93,7 @@ countDigits("Q1e2r3", (err, data) => {
 //   }
 // }
 
-// countLetter("e", "engineering")
+// countLetter("e", "engineingpart")
 //   .then((data) => {
 //     console.log("result:", data);
 //   })
