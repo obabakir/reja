@@ -1,62 +1,81 @@
-// MITASK C
-const moment = require("moment");
+// MITASK D
 
-class Shopping {
-  #non = 0;
-  #lagmon = 0;
-  #cola = 0;
+console.log("kkkk");
+// define
 
-  constructor(non, lagmon, cola) {
-    this.#non = non;
-    this.#lagmon = lagmon;
-    this.#cola = cola;
+function checkContent(a, b) {
+  if (typeof a !== typeof b) {
+    return false;
   }
-  qoldiq() {
-    const vaqt = moment().format("HH:mm:ss");
-    console.log(
-      ` hozir ${vaqt} da: ${this.#non} ta non ,${this.#lagmon}, ta lagmon, ${this.#cola} ta cola mavjud`,
-    );
-  }
-
-  sotish(product, amount) {
-    if (product === "non") {
-      this.#non -= amount;
-      return this.#non;
-    } else if (product === "lagmon") {
-      this.#lagmon -= amount;
-      return this.#lagmon;
-    } else if (product === "cola") {
-      this.#cola -= amount;
-      return this.#cola;
-    } else {
-      console.log("error: sotish amalga oshmadi");
-    }
-  }
-
-  qabul(product, amount) {
-    if (product === "non") {
-      this.#non += amount;
-      return this.#non;
-    } else if (product === "lagmon") {
-      this.#lagmon += amount;
-      return this.#lagmon;
-    } else if (product === "cola") {
-      this.#cola += amount;
-      return this.#cola;
-    } else {
-      console.log("error: qabul amalga oshmadi");
-    }
-  }
+  return true;
 }
 
-const shop = new Shopping(4, 5, 2);
-console.log("before");
-shop.qoldiq();
-shop.sotish("non", 2);
-shop.qabul("cola", 3);
-shop.qabul("lagmon", 6);
-console.log("after");
-shop.qoldiq();
+// call
+const check = checkContent("mitgroup", 5555);
+console.log(check);
+// define
+
+// ==== === ====
+
+// // MITASK C
+// const moment = require("moment");
+
+// class Shopping {
+//   #non = 0;
+//   #lagmon = 0;
+//   #cola = 0;
+
+//   constructor(non, lagmon, cola) {
+//     this.#non = non;
+//     this.#lagmon = lagmon;
+//     this.#cola = cola;
+//   }
+//   qoldiq() {
+//     const vaqt = moment().format("HH:mm:ss");
+//     console.log(
+//       ` hozir ${vaqt} da: ${this.#non} ta non ,${this.#lagmon}, ta lagmon, ${this.#cola} ta cola mavjud`,
+//     );
+//   }
+
+//   sotish(product, amount) {
+//     if (product === "non") {
+//       this.#non -= amount;
+//       return this.#non;
+//     } else if (product === "lagmon") {
+//       this.#lagmon -= amount;
+//       return this.#lagmon;
+//     } else if (product === "cola") {
+//       this.#cola -= amount;
+//       return this.#cola;
+//     } else {
+//       console.log("error: sotish amalga oshmadi");
+//     }
+//   }
+
+//   qabul(product, amount) {
+//     if (product === "non") {
+//       this.#non += amount;
+//       return this.#non;
+//     } else if (product === "lagmon") {
+//       this.#lagmon += amount;
+//       return this.#lagmon;
+//     } else if (product === "cola") {
+//       this.#cola += amount;
+//       return this.#cola;
+//     } else {
+//       console.log("error: qabul amalga oshmadi");
+//     }
+//   }
+// }
+
+// const shop = new Shopping(4, 5, 2);
+// console.log("before");
+// shop.qoldiq();
+// shop.sotish("non", 2);
+// shop.qabul("cola", 3);
+// shop.qabul("lagmon", 6);
+// console.log("after");
+// shop.qoldiq();
 
 // ====== MITASK2 ========
 // function countDigits(ele, callback) {
