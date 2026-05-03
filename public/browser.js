@@ -34,8 +34,9 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
     });
 });
 
+// =====  delete operation =====
+
 document.addEventListener("click", (e) => {
-  // =====  delete operation =====
   //   console.log(e);
   console.log(e.target);
 
@@ -58,12 +59,33 @@ document.addEventListener("click", (e) => {
 
   //   edit
   if (e.target.classList.contains("edit-me")) {
-    // =====  pressing  button  =====
-    // alert("you pressed edit button");
-    // if (confirm("Are you sure to add?")) {
-    //   alert("answer is: yes");
-    // } else {
-    //   alert("answer is: no");
-    // }
+    let userInput = prompt(
+      "O'zgartirish kiriting",
+      e.target.parentElement.parentElement.querySelector(".item-text")
+        .innerHTML,
+    );
+    if (userInput) {
+      axios
+        .post("/edit-item", {
+          id: e.target.getAttribute("data-id"),
+          new_input: userInput,
+        })
+        .then((response) => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.querySelector(
+            ".item-text",
+          ).innerHTML = userInput;
+        })
+        .catch((err) => {
+          console.log("Iltimos qaytadan harakat qiling");
+        });
+    }
   }
+});
+
+document.getElementById("clean-all").addEventListener("click", function () {
+  axios.post("/delete-all", { delete_all: true }).then((response) => {
+    alert(response.data.state);
+    document.location.reload();
+  });
 });
