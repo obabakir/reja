@@ -1,19 +1,10 @@
 // MITASK D
 
-console.log("kkkk");
-// define
-
 function checkContent(a, b) {
-  if (typeof a !== typeof b) {
-    return false;
-  }
-  return true;
+  return a.split("").sort().join("") === b.split("").sort().join("");
 }
 
-// call
-const check = checkContent("mitgroup", 5555);
-console.log(check);
-// define
+console.log(checkContent("mitgroup", "gmtiprou")); // true
 
 // ==== === ====
 
