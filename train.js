@@ -1,10 +1,24 @@
-// MITASK D
+// MITASK E
 
-function checkContent(a, b) {
-  return a.split("").sort().join("") === b.split("").sort().join("");
+function getReverse(a) {
+  if (typeof a !== "string") {
+    return "error";
+
+    // return err;
+  } else {
+    return a.split("").reverse().join("");
+  }
 }
 
-console.log(checkContent("mitgroup", "gmtiprou")); // true
+console.log(getReverse("alisher"));
+console.log(getReverse("mitgroup"));
+// MITASK D
+
+// function checkContent(a, b) {
+//   return a.split("").sort().join("") === b.split("").sort().join("");
+// }
+
+// console.log(checkContent("mitgroup", "gmtiprou")); // true
 
 // ==== === ====
 
