@@ -35,16 +35,20 @@
 
    
       <ul id="item-list" class="list-group pb-5">
+        <!-- items esa software tarzda app.js ga  res.render("reja", { items: data }); shaklda kiritildan / defoult portda -->
            <% items.map(function(item) { %>
  <li
           class="list-group-item list-group-item-info d-flex align-items-center justify-content-between"
         >
           <span class="item-text"> <%= item.reja %> </span>
+<!-- items.map(function(item){} dagi item parametrning  item dan reja(input name) ni chiqarib oldik -->
+
           <div>
             <button data-id="<%=item._id%>" 
               class="edit-me btn btn-secondary btn-sm mr-1">
               Ozgartirish
             </button>
+            <!-- items.map(function(item){} dagi item parametrning  item dan reja(input name dagi malumotning mongo db dagi har bir malumotni _id sini) ni qolga oldik chunki ochirayotganga qaysi malumotni ochirishini bilish un (software usulda) -->
             <button data-id="<%=item._id%>" 
             class="delete-me btn btn-danger btn-sm">Ochirish</button>
           </div>

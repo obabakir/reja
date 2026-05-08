@@ -29,12 +29,16 @@ app.set("view engine", "ejs");
 app.post("/create-item", (req, res) => {
   console.log("user entered /create-item");
   console.log(req.body);
-  // res.end("seccess");
+
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
+    // === === === ===
+    // requestimiz serverimizda/ terminalimizda korinishi uchun foydalaniladi (portga kirish dan keyin)
+    // === =>>> biz axios korinishadagi modern api ning qiymatini  log qilayapmiz bu pastdagi traditional api ornini egallaydi
     console.log(data.ops);
     res.json(data.ops[0]);
-
+    // === browzer.js ga thenga reponse qilayapmiz ===
+    //  bu traditional usul edi, axios packagedan foydalanganimizdan keyn res.jsonga otdik yuqorida
     // if (err) {
     //   console.log(err);
     //   res.end("something went wrong");
@@ -89,56 +93,12 @@ app.get("/", function (req, res) {
         res.end("something went wrong");
       } else {
         // console.log(data);
+        // ==== === ===
+        // shu yerda 3000 ga kirsak korsatadi, bosh arrayni kelayotgan malumot sifatida terminalda/serverimizda korsatadi lekin inputga yozganimiz yuqorida
         res.render("reja", { items: data });
+        //  default portga reja.ejs ni render/namoyish qilib berayapti & item nomi bn reja.ejs kirib kelgan malumotni ^data^ ni software shaklda keltirib berayapti <%=> ni yozdik ejsga qara ///items[1].reja === items ning 1 qiymati va u data yani reja nomi bn inputdan yuklangan malumot
       }
     });
 });
 
 module.exports = app;
-
-// console.log("Hello, World! This is the server.js file.");
-// const express = require("express");
-// const app = express();
-// const fs = require("fs")
-
-// let user;
-// fs.readFile("database/user.json", "utf-8", (err, data) => {
-//   if (err) {
-//     console.log("ERROR:", err);
-//   } else {
-//     user = JSON.parse(data);
-//   }
-// });
-
-// // 1 KIRISH CODES
-
-// app.use(express.static("public"));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// // 2 SESSION CODES
-// // 3 VIEWS CODES
-
-// app.set("views", "./views");
-// app.set("view engine", "ejs");
-
-// // 4 ROUTING CODES
-// // app.post("/create-item", (req, res) => {});
-// app.get("/author", (req, res) => {
-//   res.render("author", { user: user });
-// });
-
-// // app.get("/", function (req, res) {
-// //   res.end("<h1>Hello world with Abubakir</h1>");
-// // });
-
-// app.get("/", (req, res) => {
-//   res.render("reja");
-// });
-
-// // <-- -->
-// // app.get("/author", (req, res) => {
-// //   if (!user) return res.send("Loading...");
-// //   res.render("author", { user });
-// // });
-
-// //  ====== avto local host ======

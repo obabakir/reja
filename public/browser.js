@@ -22,6 +22,9 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
   e.preventDefault();
   axios
     .post("/create-item", { reja: createField.value })
+
+    // createField.value === input valuesiga va uni form actionigs (app.js ga) yubordik va u yerda db ga qalam orqali yozilib qaytganda biz then() bn amal bajaramiz
+
     .then((response) => {
       document
         .getElementById("item-list")
@@ -45,6 +48,7 @@ document.addEventListener("click", (e) => {
     if (confirm("Are you sure to delete?")) {
       axios
         .post("delete-item", { id: e.target.getAttribute("data-id") })
+        // bu yerga app.js =>> res.json({ state: "success" ni oladi va response shaklda thenga pass qiladi}); va console.log(response.data); sifatida biz browzwrda namoish qilayapmiz
         .then((response) => {
           console.log(response.data);
           e.target.parentElement.parentElement.remove();

@@ -1,17 +1,44 @@
-// MITASK E
+// MITASK F
 
-function getReverse(a) {
-  if (typeof a !== "string") {
-    return "error";
-
-    // return err;
-  } else {
-    return a.split("").reverse().join("");
+function findDoublers(text) {
+  if (typeof text !== "string") {
+    return false;
   }
+
+  for (let char of text) {
+    let count = 0;
+
+    for (let letter of text) {
+      if (char === letter) {
+        count++;
+      }
+    }
+
+    if (count > 1) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
-console.log(getReverse("alisher"));
-console.log(getReverse("mitgroup"));
+console.log(findDoublers("hello")); // true
+console.log(findDoublers("world")); // false
+
+// // MITASK E
+
+// function getReverse(a) {
+//   if (typeof a !== "string") {
+//     return "error";
+
+//     // return err;
+//   } else {
+//     return a.split("").reverse().join("");
+//   }
+// }
+
+// console.log(getReverse("alisher"));
+// console.log(getReverse("mitgroup"));
 // MITASK D
 
 // function checkContent(a, b) {
