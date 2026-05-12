@@ -1,29 +1,48 @@
-// MITASK F
+// MITASK G
 
-function findDoublers(text) {
-  if (typeof text !== "string") {
-    return false;
+// === define ===
+function getHighestIndex(arr) {
+  // check array
+  if (!Array.isArray(arr)) {
+    return "input array";
   }
 
-  for (let char of text) {
-    let count = 0;
+  // find maximum value
+  let max = Math.max(...arr);
 
-    for (let letter of text) {
-      if (char === letter) {
-        count++;
-      }
-    }
-
-    if (count > 1) {
-      return true;
-    }
-  }
-
-  return false;
+  // return index
+  return arr.indexOf(max);
 }
 
-console.log(findDoublers("hello")); // true
-console.log(findDoublers("world")); // false
+// === call ===
+console.log(getHighestIndex([5, 21, 12, 21, 8]));
+// MITASK F
+
+// function findDoublers(text) {
+//   if (typeof text !== "string") {
+//     return false;
+//   }
+
+//   for (let char of text) {
+//     let count = 0;
+//     // sanash un raqamlashtirib oldik // char // korinishida
+
+//     for (let letter of text) {
+//       if (char === letter) {
+//         count++;
+//       }
+//     }
+
+//     if (count > 1) {
+//       return true;
+//     }
+//   }
+// // else{} sifgatida:
+//   return false;
+// }
+
+// console.log(findDoublers("hello")); // true
+// console.log(findDoublers("world")); // false
 
 // // MITASK E
 
