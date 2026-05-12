@@ -14,8 +14,42 @@ function getHighestIndex(arr) {
   return arr.indexOf(max);
 }
 
-// === call ===
+// === call ===s
 console.log(getHighestIndex([5, 21, 12, 21, 8]));
+
+// ================= ========== =================
+
+console.log("MITASK G ==>> detalailed breakdown");
+let numberArray = [2, 3, 4, 5];
+// for Argument
+const arr = numberArray;
+
+// BUILDIN METHOD: --- true // false qaytaradi
+const b = Array.isArray([3, 4, 5]);
+console.log(b);
+// true
+
+const c = Array.isArray(4, 6, 7);
+console.log(c);
+// false
+const test = [33, 11, 55, 24, 100];
+console.log(test[1]);
+
+// spread ... objectning max/min operatorini ishlatdim ...test ==>> arrowdagi eng kattasi yo eng kichigini topish un
+// spread operatori bizning arrayimizni objectga aylantirib beradi bolmasam NaN qiymat qaytadi
+// bolmasam raqam ozizni kirish kere
+let heighestN = Math.max(...test);
+console.log(heighestN);
+
+let smallestN = Math.min(...test);
+console.log(smallestN);
+
+const testIndex = test.indexOf(heighestN);
+console.log("testIndex:", testIndex);
+
+const checkIndex = test.indexOf(smallestN);
+console.log("checkIndex:", checkIndex);
+// MITASK F
 // MITASK F
 
 // function findDoublers(text) {
