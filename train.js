@@ -1,54 +1,105 @@
-// MITASK G
+// MITASK H
 
-// === define ===
-function getHighestIndex(arr) {
-  // check array
+// define
+function getPositive(arr) {
   if (!Array.isArray(arr)) {
-    return "input array";
+    return "insert number";
   }
-
-  // find maximum value
-  let max = Math.max(...arr);
-
-  // return index
-  return arr.indexOf(max);
+  let count = arr.filter((arr) => arr > 0);
+  if (count) {
+    return count.join("");
+  }
 }
 
-// === call ===s
-console.log(getHighestIndex([5, 21, 12, 21, 8]));
+// call
+const casePositive = getPositive([5, -6, 4, 2]);
+console.log("casePositive", casePositive);
 
-// ================= ========== =================
+// ======  testing 2 ======
 
-console.log("MITASK G ==>> detalailed breakdown");
-let numberArray = [2, 3, 4, 5];
-// for Argument
-const arr = numberArray;
+const casePositive2 = getPositive([5, -6, 4, 7, -9, 10]);
+console.log("casePositive", casePositive2);
 
-// BUILDIN METHOD: --- true // false qaytaradi
-const b = Array.isArray([3, 4, 5]);
-console.log(b);
-// true
+// // define
+// function getSmallest(arr) {
+//   if (!Array.isArray(arr)) {
+//     return "insert number";
+//   }
+//   // eng kichigini topish:
+//   // return Math.min(...arr);
 
-const c = Array.isArray(4, 6, 7);
-console.log(c);
-// false
-const test = [33, 11, 55, 24, 100];
-console.log(test[1]);
+//   const min = Math.min(...arr);
+//   return arr.indexOf(min);
+// }
 
-// spread ... objectning max/min operatorini ishlatdim ...test ==>> arrowdagi eng kattasi yo eng kichigini topish un
-// spread operatori bizning arrayimizni objectga aylantirib beradi bolmasam NaN qiymat qaytadi
-// bolmasam raqam ozizni kirish kere
-let heighestN = Math.max(...test);
-console.log(heighestN);
+// // call
+// const case2 = getSmallest([50, 14, 10, 6]);
+// console.log(case2);
 
-let smallestN = Math.min(...test);
-console.log(smallestN);
+// // case 1, last element
+// function getLast(arr) {
+//   if (!Array.isArray(arr)) {
+//     return "insert number";
+//   }
+//   return arr.at(-1);
+//   // return arr[arr.length - 1];
+// }
 
-const testIndex = test.indexOf(heighestN);
-console.log("testIndex:", testIndex);
+// //  call
+// const lastElement = getLast([1, 2, 3, 5]);
+// console.log(lastElement);
 
-const checkIndex = test.indexOf(smallestN);
-console.log("checkIndex:", checkIndex);
+// MITASK G
+
+// // === define ===
+// function getHighestIndex(arr) {
+//   // check array
+//   if (!Array.isArray(arr)) {
+//     return "input array";
+//   }
+
+//   // find maximum value
+//   let max = Math.max(...arr);
+
+//   // return index
+//   return arr.indexOf(max);
+// }
+
+// // === call ===s
+// console.log(getHighestIndex([5, 21, 12, 21, 8]));
+
+// // ================= ========== =================
+
+// console.log("MITASK G ==>> detalailed breakdown");
+// let numberArray = [2, 3, 4, 5];
+// // for Argument
+// const arr = numberArray;
+
+// // BUILDIN METHOD: --- true // false qaytaradi
+// const b = Array.isArray([3, 4, 5]);
+// console.log(b);
+// // true
+
+// const c = Array.isArray(4, 6, 7);
+// console.log(c);
+// // false
+// const test = [33, 11, 55, 24, 100];
+// console.log(test[1]);
+
+// // spread ... objectning max/min operatorini ishlatdim ...test ==>> arrowdagi eng kattasi yo eng kichigini topish un
+// // spread operatori bizning arrayimizni objectga aylantirib beradi bolmasam NaN qiymat qaytadi
+// // bolmasam raqam ozizni kirish kere
+// let heighestN = Math.max(...test);
+// console.log(heighestN);
+
+// let smallestN = Math.min(...test);
+// console.log(smallestN);
+
+// const testIndex = test.indexOf(heighestN);
+// console.log("testIndex:", testIndex);
+
+// const checkIndex = test.indexOf(smallestN);
+// console.log("checkIndex:", checkIndex);
 // MITASK F
 // MITASK F
 
