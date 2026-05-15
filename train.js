@@ -1,24 +1,43 @@
-// MITASK H
+function majorityElement(arr) {
+  let counter = {};
+  let maxCount = 0;
+  let result;
 
-// define
-function getPositive(arr) {
-  if (!Array.isArray(arr)) {
-    return "insert number";
+  for (let num of arr) {
+    counter[num] = (counter[num] || 0) + 1;
+
+    if (counter[num] > maxCount) {
+      maxCount = counter[num];
+      result = num;
+    }
   }
-  let count = arr.filter((arr) => arr > 0);
-  if (count) {
-    return count.join("");
-  }
+
+  return Number(result);
 }
 
-// call
-const casePositive = getPositive([5, -6, 4, 2]);
-console.log("casePositive", casePositive);
+console.log(majorityElement([2, 3, 2, 10, 2, 50]));
 
-// ======  testing 2 ======
+// // MITASK H
 
-const casePositive2 = getPositive([5, -6, 4, 7, -9, 10]);
-console.log("casePositive", casePositive2);
+// // define
+// function getPositive(arr) {
+//   if (!Array.isArray(arr)) {
+//     return "insert number";
+//   }
+//   let count = arr.filter((arr) => arr > 0);
+//   if (count) {
+//     return count.join("");
+//   }
+// }
+
+// // call
+// const casePositive = getPositive([5, -6, 4, 2]);
+// console.log("casePositive", casePositive);
+
+// // ======  testing 2 ======
+
+// const casePositive2 = getPositive([5, -6, 4, 7, -9, 10]);
+// console.log("casePositive", casePositive2);
 
 // // define
 // function getSmallest(arr) {
