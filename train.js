@@ -1,21 +1,41 @@
-function majorityElement(arr) {
-  let counter = {};
-  let maxCount = 0;
-  let result;
+// // MITASK J
 
-  for (let num of arr) {
-    counter[num] = (counter[num] || 0) + 1;
+function findLongestWord(text) {
+  const words = text.split(" ");
+  let longest = "";
 
-    if (counter[num] > maxCount) {
-      maxCount = counter[num];
-      result = num;
+  for (const word of words) {
+    if (word.length > longest.length) {
+      longest = word;
     }
   }
 
-  return Number(result);
+  return longest;
 }
 
-console.log(majorityElement([2, 3, 2, 10, 2, 50]));
+const result = findLongestWord("I came from Uzbekistan!");
+console.log(result);
+
+//  MITASK I
+
+// function majorityElement(arr) {
+//   let counter = {};
+//   let maxCount = 0;
+//   let result;
+
+//   for (let num of arr) {
+//     counter[num] = (counter[num] || 0) + 1;
+
+//     if (counter[num] > maxCount) {
+//       maxCount = counter[num];
+//       result = num;
+//     }
+//   }
+
+//   return Number(result);
+// }
+
+// console.log(majorityElement([2, 3, 2, 10, 2, 50]));
 
 // // MITASK H
 
