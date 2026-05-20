@@ -1,20 +1,46 @@
-// // MITASK J
+// MITASK K
 
-function findLongestWord(text) {
-  const words = text.split(" ");
-  let longest = "";
+// TASK K
 
-  for (const word of words) {
-    if (word.length > longest.length) {
-      longest = word;
+function countVowels(text) {
+  if (typeof text !== "string") {
+    return "insert a text";
+  }
+
+  let amount = 0;
+  const vowels = "aeiouAEIOU";
+
+  for (const char of text) {
+    if (vowels.includes(char)) {
+      amount++;
     }
   }
 
-  return longest;
+  return amount;
 }
 
-const result = findLongestWord("I came from Uzbekistan!");
-console.log(result);
+const v_Calculating = countVowels("Brian");
+console.log(v_Calculating); // 2
+
+// ============
+
+// // MITASK J
+
+// function findLongestWord(text) {
+//   const words = text.split(" ");
+//   let longest = "";
+
+//   for (const word of words) {
+//     if (word.length > longest.length) {
+//       longest = word;
+//     }
+//   }
+
+//   return longest;
+// }
+
+// const result = findLongestWord("I came from Uzbekistan!");
+// console.log(result);
 
 //  MITASK I
 
